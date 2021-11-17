@@ -6,6 +6,9 @@
       <link rel="stylesheet" href="style.css">
    </head>
    <body>
+     <div class="top">
+       Password Strength Checker
+     </div>
       <div class="container">
          <header>Enter your password here</header>
          <form action="#">
@@ -21,6 +24,10 @@
             </div>
             <div class="text"></div>
          </form>
+         <div class="sujs">
+          <button onclick="myFunction()">Suggest a passoword</button>
+          <p id="hi"></p>
+         </div>
       </div>
       <script>
          const indicator = document.querySelector(".indicator");
@@ -31,6 +38,17 @@
          const uncrack=document.querySelector(".uncrackable");
          const text = document.querySelector(".text");
          const showBtn = document.querySelector(".showBtn");
+     
+         function myFunction()
+         {
+          var length = 8,
+        charset = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789",
+        retVal = "";
+    for (var i = 0, n = charset.length; i < length; ++i) {
+        retVal += charset.charAt(Math.floor(Math.random() * n));
+        }
+        document.getElementsById("hi").innerHTML(retVal);
+         }
          let regExpWeak = /[a-z]/;
          let regExpMedium = /\d+/;
          let regExpStrong = /.[!,@,#,$,%,^,&,*,?,_,~,-,(,)]/;
